@@ -1,0 +1,31 @@
+.btn {
+  font-size: 22px;
+  font-family: 'Baloo', serif;
+  padding: 7px 10px;
+  width: 100%;
+  outline: none;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.btn.primary {
+  border-radius: 10px;
+  background: #3498db;
+  border: none;
+  color: #ffffff;
+
+}
+
+.btn.primary:hover {
+  background: #076fb5;
+}
+
+.btn.secondary {
+  border: none;
+  background: transparent;
+  color: #333333;
+}
+
+.btn.secondary:hover {
+  color: #076fb5;
+}
