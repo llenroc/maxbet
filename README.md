@@ -18,3 +18,8 @@ npm run dev
 # build for github page or deploy on simple server
 bash build.sh
 ```
+
+## Run bot operator
+`` bash
+npm start
+```
