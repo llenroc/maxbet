@@ -80,7 +80,8 @@ export default {
         });
       }
 
-      this.gameBalance = await Contract.get.gameBalance()
+      this.gameBalance = await Contract.get.gameBalance();
+      this.gameBalance = Math.floor(this.gameBalance);
 
       var addresses = await Contract.get.stakersInPool();
       addresses = addresses.map(e => e.toLowerCase());
@@ -88,7 +89,7 @@ export default {
         var address = addresses[i];
         var stake = await Contract.get.stake(address)
         stake.address = address;
-        stake.amount = utils.toTOMO(stake.amount);
+        stake.amount = utils.toTOMO(stake.amount, true);
         stake.totalStake = utils.toTOMO(stake.totalStake);
         var _stake = this.stakers.find(e => e.address == address);
         if (_stake) {

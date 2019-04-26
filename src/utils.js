@@ -1,9 +1,14 @@
 const Web3 = require('web3');
 
 module.exports = {
-  toTOMO(bigNum) {
+  toTOMO(bigNum, isInt) {
     var v = Web3.utils.fromWei(bigNum.toString(), 'ether');
     v = parseFloat(v);
-    return Math.floor(v * 100) / 100
+    if (isInt) {
+      return Math.floor(v);
+    }
+    else {
+      return Math.floor(v * 100) / 100
+    }
   }
 }

@@ -42,8 +42,8 @@ export default {
   data() {
     return {
       store: _store,
-      amount: 1,
-      minAmount: 1000,
+      amount: 500,
+      minAmount: 500,
       stake: 0,
       totalStake: 0,
       isInPool: false,

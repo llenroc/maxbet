@@ -20,7 +20,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
@@ -31,7 +31,7 @@ module.exports = {
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
-    cacheBusting: true,
+    cacheBusting: false,
 
     cssSourceMap: true
   },
@@ -49,7 +49,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

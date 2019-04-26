@@ -296,12 +296,6 @@ module.exports = {
           min: utils.toTOMO(v.min),
           max: utils.toTOMO(v.max)
         }
-
-        console.log(result);
-
-        if (result.max > 10) {
-          result.max = Math.floor(result.max / 5) * 5;
-        }
         result.max = result.max > 500 ? 500 : result.max;
         result.min = result.min < result.max ? result.min : 0.1;
 

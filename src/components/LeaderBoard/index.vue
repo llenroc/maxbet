@@ -122,12 +122,12 @@ export default {
         var amount = await Contract.get.totalBetOfPlayer(this.round, address);
         var player = this.players.find(p => p.address == address);
         if (player) {
-          player.amount = utils.toTOMO(amount);
+          player.amount = utils.toTOMO(amount, true);
         }
         else {
           this.players.push({
             address: address,
-            amount: utils.toTOMO(amount)
+            amount: utils.toTOMO(amount, true)
           });
         }
         this.players = this.players.sort((a, b) => b.amount - a.amount);
