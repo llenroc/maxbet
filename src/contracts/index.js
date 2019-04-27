@@ -407,5 +407,116 @@ module.exports = {
           .on('error', ex => reject(ex));
       })
     }
-  }
+  },
+  setPrizeLevel: function(level) {
+    var msg = checkBeforeDoTransaction();
+    if (msg) {
+      return new Promise((resolve, reject) => {
+        reject(new Error(msg));
+      })
+    }
+    else {
+      return new Promise((resolve, reject) => {
+        LuckyContract.methods
+          .setPrizeLevel(level)
+          .send({
+            from: address,
+            to: CONTRACT_CONFIG.ADDRESS,
+            gasLimit: web3.utils.toHex(1000000),
+            gasPrice: web3.utils.toHex(web3.utils.toWei('0.25', 'gwei'))
+          })
+          .on('transactionHash', hash => resolve(hash))
+          .on('error', ex => reject(ex));
+      })
+    }
+  },
+  setCroupier: function(address, isCroupier) {
+    var msg = checkBeforeDoTransaction();
+    if (msg) {
+      return new Promise((resolve, reject) => {
+        reject(new Error(msg));
+      })
+    }
+    else {
+      return new Promise((resolve, reject) => {
+        LuckyContract.methods
+          .setCroupier(address, isCroupier)
+          .send({
+            from: address,
+            to: CONTRACT_CONFIG.ADDRESS,
+            gasLimit: web3.utils.toHex(1000000),
+            gasPrice: web3.utils.toHex(web3.utils.toWei('0.25', 'gwei'))
+          })
+          .on('transactionHash', hash => resolve(hash))
+          .on('error', ex => reject(ex));
+      })
+    }
+  },
+  refundBet: function(address) {
+    var msg = checkBeforeDoTransaction();
+    if (msg) {
+      return new Promise((resolve, reject) => {
+        reject(new Error(msg));
+      })
+    }
+    else {
+      return new Promise((resolve, reject) => {
+        LuckyContract.methods
+          .refundBet(address)
+          .send({
+            from: address,
+            to: CONTRACT_CONFIG.ADDRESS,
+            gasLimit: web3.utils.toHex(1000000),
+            gasPrice: web3.utils.toHex(web3.utils.toWei('0.25', 'gwei'))
+          })
+          .on('transactionHash', hash => resolve(hash))
+          .on('error', ex => reject(ex));
+      })
+    }
+  },
+  operatorWithdraw: function(address, amount) {
+    var msg = checkBeforeDoTransaction();
+    if (msg) {
+      return new Promise((resolve, reject) => {
+        reject(new Error(msg));
+      })
+    }
+    else {
+      return new Promise((resolve, reject) => {
+        LuckyContract.methods
+          .operatorWithdraw(address, web3.utils.toHex(web3.utils.toWei(amount.toString(), 'ether')))
+          .send({
+            from: address,
+            to: CONTRACT_CONFIG.ADDRESS,
+            gasLimit: web3.utils.toHex(1000000),
+            gasPrice: web3.utils.toHex(web3.utils.toWei('0.25', 'gwei'))
+          })
+          .on('transactionHash', hash => resolve(hash))
+          .on('error', ex => reject(ex));
+      })
+    }
+  },
+  prizeForLeaderBoard: function (amount) {
+    var msg = checkBeforeDoTransaction();
+    if (msg) {
+      return new Promise((resolve, reject) => {
+        reject(new Error(msg));
+      })
+    }
+    else {
+      return new Promise((resolve, reject) => {
+        return LuckyContract.methods
+          .prizeForLeaderBoard()
+          .send({
+            from: address,
+            to: CONTRACT_CONFIG.ADDRESS,
+            value: web3.utils.toHex(web3.utils.toWei(amount.toString(), 'ether')),
+            gasLimit: web3.utils.toHex(1000000),
+            gasPrice: web3.utils.toHex(web3.utils.toWei('0.25', 'gwei'))
+          })
+          .on('transactionHash', hash => resolve(hash))
+          .on('error', ex => reject(ex));
+      });
+    }
+  },
 }

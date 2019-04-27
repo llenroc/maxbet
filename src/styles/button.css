@@ -26,6 +26,15 @@
   color: #333333;
 }
 
+
 .btn.secondary:hover {
   color: #076fb5;
+}
+
+.btn.secondary.white {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn.secondary.white:hover {
+  color: rgba(255, 255, 255, 1) !important;
 }

@@ -46,6 +46,11 @@
         </tr>
       </tbody>
     </table>
+    <div class="text-right pr15 pl15 mt30">
+      <button class="btn primary" @click="store.isShowDonateForPrizePoolModal = true">
+        Donate for Leader Board Prize
+      </button>
+    </div>
   </div>
 </template>
 
@@ -53,6 +58,7 @@
 
 import Contract from '../../contracts';
 import utils from '../../utils';
+import _store from '../../store';
 
 export default {
   data() {
@@ -60,10 +66,10 @@ export default {
       round: 0,
       lastRound: 0,
       lastWinners: [],
-      currentPrize: 0,
       currentBlock: 0,
       time: '',
-      players: []
+      players: [],
+      store: _store
     }
   },
   async created() {
@@ -90,6 +96,9 @@ export default {
       m = m < 10 ? `0${m}` : m;
       s = s < 10 ? `0${s}` : s;
       return `${h}:${m}:${s}`;
+    },
+    currentPrize() {
+      return this.store.currentPrize;
     }
   },
   methods: {
@@ -107,7 +116,7 @@ export default {
       this.currentBlock = parseInt(lastBlock.number);
     },
     async updateLeader() {
-      this.currentPrize = await Contract.get.totalPrize();
+      this.store.currentPrize = await Contract.get.totalPrize();
       var data = await Contract.get.currentLeaderBoard();
       var lastBlock = await Contract.get.lastBlock();
       this.currentBlock = parseInt(lastBlock.number);

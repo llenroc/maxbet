@@ -5,8 +5,10 @@
     <JoinStakePoolModal v-if="store.isShowJoinStakePoolModal" />
     <ManageStakeModal v-if="store.isShowManageStakeModal" />
     <WithdrawStakePoolModal v-if="store.isShowWithdrawModal" />
+    <DonateForPrizePoolModal v-if="store.isShowDonateForPrizePoolModal" />
     <HelpModal v-if="store.isShowHelpModal" />
     <ErrorModal v-if="store.isShowErrorModal" />
+    <SettingModal v-if="store.isShowSettingModal" />
     <Home />
     <ChatBox/>
   </div>
@@ -18,9 +20,11 @@ import LoginModal from './components/LoginModal';
 import AccountModal from './components/AccountModal';
 import JoinStakePoolModal from './components/JoinStakePoolModal';
 import ManageStakeModal from './components/ManageStakeModal';
+import DonateForPrizePoolModal from './components/DonateForPrizePoolModal';
 import WithdrawStakePoolModal from './components/WithdrawStakePoolModal';
 import HelpModal from './components/HelpModal';
 import ErrorModal from './components/ErrorModal';
+import SettingModal from './components/SettingModal';
 import ChatBox from './components/ChatBox';
 
 import store from './store';
@@ -37,7 +41,9 @@ export default {
     WithdrawStakePoolModal,
     HelpModal,
     ErrorModal,
-    ChatBox
+    ChatBox,
+    DonateForPrizePoolModal,
+    SettingModal
   },
   data() {
     return {

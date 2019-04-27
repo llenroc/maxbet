@@ -29,6 +29,9 @@
       <button class="btn primary" @click="store.isShowJoinStakePoolModal = true">
         {{stake > 0 ? "Stake more to be rich": "Join stake pool to take revenue"}}
       </button>
+      <button v-if="stake > 0" class="btn secondary white mt10" @click="store.isShowManageStakeModal = true">
+        Manage Your Stake
+      </button>
     </div>
   </div>
 </template>

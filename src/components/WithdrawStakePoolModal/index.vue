@@ -46,15 +46,7 @@ export default {
       revenue: 0,
       msg: '',
       isError: false,
-      isRequestQuitPool: false,
-      transactionData: `tomochain:${Contract.get.contractAddress()}?amount=${1}&message=Join%20Stake%20MaxBet`
-    }
-  },
-  watch: {
-    'amount': {
-      handler(val) {
-        this.transactionData = `tomochain:${Contract.get.contractAddress()}?amount=${val || 1}&message=Join%20Stake%20MaxBet`;
-      }
+      isRequestQuitPool: false
     }
   },
   async created() {
@@ -85,6 +77,7 @@ export default {
         this.store.updateBalance();
       }
       catch(ex) {
+        this.isSubmitting = false;
         if (ex.toString().toLowerCase().indexOf('user denied transaction signature') >= 0) {
           return;
         }
@@ -105,6 +98,7 @@ export default {
         this.store.updateBalance();
       }
       catch(ex) {
+        this.isSubmitting = true;
         if (ex.toString().toLowerCase().indexOf('user denied transaction signature') >= 0) {
           return;
         }

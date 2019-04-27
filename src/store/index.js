@@ -11,12 +11,14 @@ var store = {
   isShowHelpModal: false,
   isShowErrorModal: false,
   isShowChatBox: false,
+  isShowDonateForPrizePoolModal: false,
+  isShowSettingModal: false,
   isAutoRoll: false,
   isRolling: false,
   errorMessage: '',
   changeToUpdateBalance: 0,
   changeToUpdateStake: 0,
-
+  currentPrize: 0,
   balance: 0,
 
   showError(msg) {

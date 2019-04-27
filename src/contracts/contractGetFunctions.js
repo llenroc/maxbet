@@ -393,5 +393,12 @@ module.exports = {
       .randIndexForNextRound()
       .call()
       .then(n => parseInt(n));
+  },
+  getPrizePerBetLevel: function() {
+    return LuckyContract
+      .methods
+      .PRIZE_PER_BET_LEVEL()
+      .call()
+      .then(n => parseInt(n));
   }
 }
